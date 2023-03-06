@@ -7,6 +7,7 @@ ENV COMPONENT=governance-policy-propagator
 ENV REPO_PATH=/go/src/github.com/stolostron/${COMPONENT}
 WORKDIR ${REPO_PATH}
 COPY . .
+RUN go get open-cluster-management.io/governance-policy-propagator
 RUN make build
 
 # Stage 2: Copy the binaries from the image builder to the base image
